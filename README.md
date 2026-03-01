@@ -1,16 +1,40 @@
-# React + Vite
+Nama: Arsya MayReno Arnaldo
+Nama Panggilan: Reno
+Sekolah: SMK PGRI 3 Malang
+Jurusan: Rekayasa Perangkat Lunak
+Lokasi: Dau, Malang, Jawa Timur
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tentang Saya
+Saya adalah siswa RPL yang fokus pada pengembangan web dan software. Saya terbiasa menggunakan React, Laravel, C#, dan Unity. Saya suka membangun project nyata untuk meningkatkan skill dan pengalaman.
 
-Currently, two official plugins are available:
+Keahlian
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* HTML
+* CSS
+* JavaScript
+* React
+* Laravel
+* C#
+* Unity
 
-## React Compiler
+Project Unggulan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Aplikasi CRUD Laravel
+   Membangun sistem manajemen data menggunakan Laravel dan MySQL.
+   Fitur login, dashboard, dan manajemen data.
 
-## Expanding the ESLint configuration
+2. Aplikasi Desktop C#
+   Membuat aplikasi berbasis Windows untuk pengolahan data sederhana.
+   Menggunakan konsep OOP dan koneksi database.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Game Sederhana dengan Unity
+   Membuat game 2D menggunakan Unity dan C#.
+   Mengatur sistem player movement, score, dan UI.
+
+Tujuan
+Saya ingin menjadi developer profesional dan terus mengembangkan skill di bidang web dan game development.
+
+Kontak
+Email: arsyamayreno480@gmail.com
+GitHub: -
+Instagram: -
