@@ -1,0 +1,15 @@
+.hero__inner{display:flex;gap:40px;align-items:center;justify-content:space-between}
+.hero__copy{flex:1}
+.hero__title{font-size:2.4rem;margin:0 0 12px}
+.hero__lead{color:var(--muted);margin-bottom:16px}
+.accent{background:linear-gradient(90deg,var(--accent),#5dd3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__actions{display:flex;gap:12px;margin-bottom:12px}
+.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.hero__avatar{width:180px;height:180px;display:flex;align-items:center;justify-content:center}
+.avatar__circle{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#6b5cff,#5dd3ff);box-shadow:0 14px 40px rgba(92,72,255,0.18);border:3px solid rgba(255,255,255,0.04)}
+.hero__roles{margin-top:10px;color:var(--muted)}
+
+@media(max-width:880px){
+  .hero__inner{flex-direction:column-reverse;align-items:center;text-align:center}
+  .hero__avatar{margin-bottom:12px}
+}

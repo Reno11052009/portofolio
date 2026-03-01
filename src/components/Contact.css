@@ -1,0 +1,4 @@
+.contact__form{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.contact__form input,.contact__form textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit}
+.contact__form input:focus,.contact__form textarea:focus{outline:none;box-shadow:0 6px 20px rgba(124,92,255,0.12);border-color:var(--accent)}
+.contact__success{padding:18px;background:linear-gradient(90deg,rgba(93,211,255,0.06),rgba(124,92,255,0.06));border-radius:10px}
