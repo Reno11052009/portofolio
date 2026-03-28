@@ -15,7 +15,6 @@ export default function Projects(){
         <div className="projects__grid">
           {projects.map(p=> (
             <motion.article className="project__card" key={p.id} variants={card} whileHover={{scale:1.03}}>
-              <div className="project__media" />
               <div className="project__body">
                 <h3>{p.title}</h3>
                 <p className="muted">{p.desc}</p>

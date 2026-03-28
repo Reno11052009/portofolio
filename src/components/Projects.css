@@ -1,6 +1,5 @@
 .projects__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
 .project__card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
-.project__media{height:140px;background:linear-gradient(135deg,#6b5cff,#5dd3ff);opacity:0.9}
 .project__body{padding:12px}
 .project__cta{display:flex;gap:8px;margin-top:10px}
 .btn--ghost{padding:8px 10px;border-radius:8px}

@@ -1,7 +1,9 @@
 const projects = [
-  { id:1, title:'Cool App', desc:'A performant web app built with React.', demo:'#', repo:'#' },
-  { id:2, title:'Game Prototype', desc:'Experimental WebGL game prototype.', demo:'#', repo:'#' },
-  { id:3, title:'UI Library', desc:'Reusable components and design tokens.', demo:'#', repo:'#' }
+  { id:1, title:'Ecomerce Flutter', desc:'Mobile e-commerce application built with Flutter, featuring product listings, cart, and checkout.', demo:'#', repo:'https://github.com/Reno11052009/ecomerce_flutter.git' },
+  { id:2, title:'API Flutter', desc:'REST API for Flutter applications with authentication and data management features.', demo:'#', repo:'https://github.com/Reno11052009/api-flutter.git' },
+  { id:3, title:'Jurnal PKL', desc:'Web application for managing daily internship logs with login and data tracking features.', demo:'#', repo:'https://github.com/Reno11052009/jurnalpkl.git' },
+  { id:4, title:'Ecomerce Laravel', desc:'E-commerce website built with Laravel, including product management, transactions, and user authentication.', demo:'#', repo:'https://github.com/Reno11052009/ecomerce-laravel.git' },
+  { id:5, title:'Portofolio', desc:'Personal portfolio website showcasing projects and skills, built with React and Framer Motion.', demo:'#', repo:'https://github.com/Reno11052009/portofolio.git'}
 ]
 
 export default projects

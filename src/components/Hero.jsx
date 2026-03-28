@@ -20,9 +20,9 @@ export default function Hero(){
           <div className="hero__roles"><Typewriter roles={["Web Developer","Game Developer","UI Engineer"]} /></div>
         </motion.div>
 
-        <motion.div className="hero__avatar" variants={avatar} initial="initial" animate="animate">
+        {/* <motion.div className="hero__avatar" variants={avatar} initial="initial" animate="animate">
           <div className="avatar__circle"/>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )
