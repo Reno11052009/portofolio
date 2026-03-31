@@ -17,7 +17,7 @@ export default function Hero(){
             <button className="btn">Get in touch</button>
             <a href="#projects" className="btn btn--ghost">See projects</a>
           </div>
-          <div className="hero__roles"><Typewriter roles={["Web Developer","Game Developer","UI Engineer"]} /></div>
+          <div className="hero__roles"><Typewriter roles={["Web Developer","Vibe Coding"]} /></div>
         </motion.div>
 
         {/* <motion.div className="hero__avatar" variants={avatar} initial="initial" animate="animate">
