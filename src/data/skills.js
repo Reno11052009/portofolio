@@ -7,6 +7,8 @@ const skills = [
   {name:"Python", level:75},
   {name:"Flutter", level:50},
   {name:"Django", level:50},
+  {name:"MySQL", level:80},
+  {name:"Java", level:60},
 ]
 
 export default skills
