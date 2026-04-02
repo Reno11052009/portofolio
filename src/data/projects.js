@@ -5,7 +5,9 @@ const projects = [
   { id:4, title:'Ecomerce Laravel', desc:'E-commerce website built with Laravel, including product management, transactions, and user authentication.', demo:'#', repo:'https://github.com/Reno11052009/ecomerce-laravel.git' },
   { id:5, title:'Portofolio', desc:'Personal portfolio website showcasing projects and skills, built with React and Framer Motion.', demo:'#', repo:'https://github.com/Reno11052009/portofolio.git'},
   { id:6, title:'MyLinks Frontend', desc:'All-in-one digital bio platform with link tracking, product management, and Midtrans payment integration (Node.js + React + MySQL)', demo:'#', repo:'https://github.com/Reno11052009/MyLinks_frontend.git'},
-  { id:7, title:'MyLinks Backend', desc:'Backend service for the MyLinks platform, handling API endpoints and database operations (Node.js + Express + MySQL)', demo:'#', repo:'https://github.com/Reno11052009/MyLinks_backend.git'}
+  { id:7, title:'MyLinks Backend', desc:'Backend service for the MyLinks platform, handling API endpoints and database operations (Node.js + Express + MySQL)', demo:'#', repo:'https://github.com/Reno11052009/MyLinks_backend.git'},
+  { id:8, title:'real time chat backend', desc: 'REST API and real-time WebSocket server for RealtimeChat application. Built with Laravel 13, Laravel Reverb (WebSocket), and Laravel Sanctum for token-based authentication. Supports private and group conversations, online/offline status, and real-time message broadcasting.', demo:'#', repo: 'https://github.com/Reno11052009/real-time-chat-backend.git'},
+  { id:9, title:'real time chat frontend', desc: 'Real-time chat application frontend inspired by WhatsApp. Built with React, Vite, and Tailwind CSS. Features include private and group chat, real-time messaging via Laravel Echo + Reverb WebSocket, online/offline status indicators, and a fully responsive mobile-friendly UI.', demo:'#', repo: 'https://github.com/Reno11052009/real-time-chat-frontend.git'}
 ]
 
 export default projects
