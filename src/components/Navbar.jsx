@@ -42,7 +42,7 @@ export default function Navbar(){
           <li><a href="#about" onClick={handleNavClick}>About</a></li>
           <li><a href="#skills" onClick={handleNavClick}>Skills</a></li>
           <li><a href="#projects" onClick={handleNavClick}>Projects</a></li>
-          <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
+          <li><a href="#sosmed" onClick={handleNavClick}>Sosmed</a></li>
         </ul>
         <button className="nav__menu" onClick={()=>setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
