@@ -9,13 +9,14 @@ Saya adalah siswa RPL yang fokus pada pengembangan web dan software. Saya terbia
 
 Keahlian
 
-* HTML
-* CSS
 * JavaScript
 * React
 * Laravel
 * C#
 * Unity
+* PHP
+* Python
+* Django
 
 Project Unggulan
 
