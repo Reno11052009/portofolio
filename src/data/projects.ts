@@ -1,0 +1,23 @@
+export interface Project {
+  id: number;
+  title: string;
+  desc: string;
+  demo: string;
+  repo: string;
+}
+
+const projects: Project[] = [
+  { id: 1, title: 'Ecomerce Flutter', desc: 'Mobile e-commerce application built with Flutter, featuring product listings, cart, and checkout.', demo: '#', repo: 'https://github.com/Reno11052009/ecomerce_flutter.git' },
+  { id: 2, title: 'API Flutter', desc: 'REST API for Flutter applications with authentication and data management features.', demo: '#', repo: 'https://github.com/Reno11052009/api-flutter.git' },
+  { id: 3, title: 'Jurnal PKL', desc: 'Web application for managing daily internship logs with login and data tracking features.', demo: '#', repo: 'https://github.com/Reno11052009/jurnalpkl.git' },
+  { id: 4, title: 'Ecomerce Laravel', desc: 'E-commerce website built with Laravel, including product management, transactions, and user authentication.', demo: '#', repo: 'https://github.com/Reno11052009/ecomerce-laravel.git' },
+  { id: 5, title: 'Portofolio', desc: 'Personal portfolio website showcasing projects and skills, built with React and Framer Motion.', demo: '#', repo: 'https://github.com/Reno11052009/portofolio.git' },
+  { id: 6, title: 'MyLinks Frontend', desc: 'All-in-one digital bio platform with link tracking, product management, and Midtrans payment integration (Node.js + React + MySQL)', demo: '#', repo: 'https://github.com/Reno11052009/MyLinks_frontend.git' },
+  { id: 7, title: 'MyLinks Backend', desc: 'Backend service for the MyLinks platform, handling API endpoints and database operations (Node.js + Express + MySQL)', demo: '#', repo: 'https://github.com/Reno11052009/MyLinks_backend.git' },
+  { id: 8, title: 'real time chat backend', desc: 'REST API and real-time WebSocket server for RealtimeChat application. Built with Laravel 13, Laravel Reverb (WebSocket), and Laravel Sanctum for token-based authentication. Supports private and group conversations, online/offline status, and real-time message broadcasting.', demo: '#', repo: 'https://github.com/Reno11052009/real-time-chat-backend.git' },
+  { id: 9, title: 'real time chat frontend', desc: 'Real-time chat application frontend inspired by WhatsApp. Built with React, Vite, and Tailwind CSS. Features include private and group chat, real-time messaging via Laravel Echo + Reverb WebSocket, online/offline status indicators, and a fully responsive mobile-friendly UI.', demo: '#', repo: 'https://github.com/Reno11052009/real-time-chat-frontend.git' },
+  { id: 10, title: 'real time chat android', desc: 'Real-time chat application for Android devices, built with Flutter. Features include private and group chat, real-time messaging via WebSocket, online/offline status indicators, and a user-friendly mobile interface.', demo: '#', repo: 'https://github.com/Reno11052009/real-time-chat-android.git' },
+  { id: 11, title: 'weather app', desc: 'A weather application built with Next.js and Tailwind CSS, utilizing the OpenWeatherMap API to provide real-time weather information based on user location or search queries. Features include current weather conditions, forecasts, and a responsive design for optimal viewing on various devices.', demo: 'https://weather-app.renoreno.my.id/', repo: 'https://github.com/Reno11052009/weather-app.git' },
+];
+
+export default projects;
