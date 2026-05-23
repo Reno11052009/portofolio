@@ -3,9 +3,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function Sosmed() {
+export default function Contact() {
   return (
-    <section id="sosmed" className="py-20">
+    <section id="contact" className="py-20">
       <motion.div
         className="w-full max-w-[900px] mx-auto px-5"
         initial={{ opacity: 0, y: 20 }}
@@ -13,7 +13,7 @@ export default function Sosmed() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-[1.8rem] font-bold mb-2">Sosmed</h2>
+        <h2 className="text-[1.8rem] font-bold mb-2">Contact</h2>
         <div className="flex flex-col gap-3 mt-3">
           <a
             href="https://www.instagram.com/reno110509/"

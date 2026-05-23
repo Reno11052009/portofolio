@@ -7,6 +7,7 @@ import {
   IconHome,
   IconNewSection,
   IconTerminal2,
+  IconMail,
 } from "@tabler/icons-react";
 
 export default function FloatingDockDemo() {
@@ -45,11 +46,11 @@ export default function FloatingDockDemo() {
       href: "#projects",
     },
     {
-      title: "Sosmed",
+      title: "Contact",
       icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#sosmed",
+      href: "#contact",
     },
   ];
 

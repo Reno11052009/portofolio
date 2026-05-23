@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
-import Sosmed from "../components/Sosmed";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
         <About />
         <Skills />
         <Projects />
-        <Sosmed />
+        <Contact />
       </main>
     </div>
   );
