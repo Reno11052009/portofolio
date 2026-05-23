@@ -1,4 +1,4 @@
-import SplashCursor from "../components/SplashCursor";
+import LoadingScreen from "../components/LoadingScreen";
 import FloatingDockDemo from "../components/ui/floating-dock-demo";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -9,12 +9,8 @@ import Contact from "../components/Contact";
 export default function Home() {
   return (
     <div className="app-root">
-      <SplashCursor 
-        SIM_RESOLUTION={32}
-        DYE_RESOLUTION={512}
-        PRESSURE_ITERATIONS={8}
-      />
-      
+      <LoadingScreen />
+
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-4">
         <FloatingDockDemo />
       </div>
