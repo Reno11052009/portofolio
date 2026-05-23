@@ -118,21 +118,8 @@ export default function LoadingScreen() {
             <circle className="loading-ring-track" cx="50" cy="50" r="44" />
             <circle className="loading-ring-fill" cx="50" cy="50" r="44" />
           </svg>
-          {/* Inner logo / initials */}
-          <div className="loading-initials">
-            <span>A</span>
-            <span>R</span>
-          </div>
         </div>
 
-        {/* Name reveal */}
-        <div className="loading-name">
-          <span className="loading-name-first">Arsya</span>
-          <span className="loading-name-last">Mayreno</span>
-        </div>
-
-        {/* Tagline */}
-        <p className="loading-tagline">Building digital experiences</p>
 
         {/* Progress bar */}
         <div className="loading-progress-track">
