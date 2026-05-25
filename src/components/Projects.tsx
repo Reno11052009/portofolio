@@ -18,7 +18,7 @@ const card = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-8">
       <motion.div
         className="w-full max-w-[1100px] mx-auto px-5"
         initial="hidden"

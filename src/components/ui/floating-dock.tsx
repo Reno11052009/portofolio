@@ -22,7 +22,7 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -38,7 +38,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
   className?: string;
 }) => {
   return (
@@ -52,6 +52,7 @@ const FloatingDockMobile = ({
         <a
           href={item.href}
           key={item.title}
+          onClick={item.onClick}
           className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 dark:bg-neutral-800 active:scale-95 transition-transform"
         >
           <div className="h-5 w-5 flex items-center justify-center">{item.icon}</div>
@@ -65,7 +66,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
@@ -90,11 +91,13 @@ function IconContainer({
   title,
   icon,
   href,
+  onClick,
 }: {
   mouseX: MotionValue<number>;
   title: string;
   icon: React.ReactNode;
   href: string;
+  onClick?: (e: React.MouseEvent) => void;
 }) {
   let ref = useRef<HTMLDivElement>(null);
 
@@ -138,8 +141,15 @@ function IconContainer({
 
   const [hovered, setHovered] = useState(false);
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick(e);
+    }
+  };
+
   return (
-    <a href={href}>
+    <a href={href} onClick={handleClick}>
       <motion.div
         ref={ref}
         style={{ width, height }}

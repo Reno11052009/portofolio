@@ -14,6 +14,9 @@ import {
   SiDjango,
   SiMysql,
   SiLinux,
+  SiHtml5,
+  SiNextdotjs,
+  SiTailwindcss,
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
@@ -121,11 +124,38 @@ const techLogos: LogoItem[] = [
     ),
     title: 'Linux',
   },
+  {
+    node: (
+      <div className="text-muted transition-all duration-300 flex items-center gap-2.5 text-[1rem] font-medium hover:text-white group">
+        <SiHtml5 className={iconClass} />
+        <span>HTML5</span>
+      </div>
+    ),
+    title: 'HTML5',
+  },
+  {
+    node: (
+      <div className="text-muted transition-all duration-300 flex items-center gap-2.5 text-[1rem] font-medium hover:text-white group">
+        <SiNextdotjs className={iconClass} />
+        <span>Next.js</span>
+      </div>
+    ),
+    title: 'Next.js',
+  },
+  {
+    node: (
+      <div className="text-muted transition-all duration-300 flex items-center gap-2.5 text-[1rem] font-medium hover:text-white group">
+        <SiTailwindcss className={iconClass} />
+        <span>TailwindCSS</span>
+      </div>
+    ),
+    title: 'TailwindCSS',
+  },
 ]
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-8">
       <motion.div className="w-full max-w-[1100px] mx-auto px-5" initial="hidden" whileInView="show" viewport={{ once: true }} variants={container}>
         <div className="bg-surface border border-white/5 rounded-xl py-6 mb-10 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
           <LogoLoop
