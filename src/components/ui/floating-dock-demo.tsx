@@ -27,13 +27,6 @@ export default function FloatingDockDemo() {
       href: "#about",
     },
     {
-      title: "Skills",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#skills",
-    },
-    {
       title: "Projects",
       icon: (
         <img

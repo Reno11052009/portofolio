@@ -128,7 +128,6 @@ export default function Skills() {
     <section id="skills" className="py-20">
       <motion.div className="w-full max-w-[1100px] mx-auto px-5" initial="hidden" whileInView="show" viewport={{ once: true }} variants={container}>
         <div className="bg-surface border border-white/5 rounded-xl py-6 mb-10 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
-          <div className="text-[0.85rem] text-muted uppercase tracking-[0.08em] mb-4 text-center font-semibold">Technology Stack</div>
           <LogoLoop
             logos={techLogos}
             speed={40}
