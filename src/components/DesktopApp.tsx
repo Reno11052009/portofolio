@@ -28,20 +28,44 @@ const DesktopWorkspace = () => {
     {
       title: "Projects",
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-      onClick: (e: React.MouseEvent) => { e.preventDefault(); openWindow('projects'); }
+      href: "#mobile-projects",
+      onClick: (e: React.MouseEvent) => { 
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+          e.preventDefault();
+          document.getElementById('mobile-projects')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          e.preventDefault(); 
+          openWindow('projects'); 
+        }
+      }
     },
     {
       title: "About",
       icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-      onClick: (e: React.MouseEvent) => { e.preventDefault(); openWindow('about'); }
+      href: "#mobile-about",
+      onClick: (e: React.MouseEvent) => { 
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+          e.preventDefault();
+          document.getElementById('mobile-about')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          e.preventDefault(); 
+          openWindow('about'); 
+        }
+      }
     },
     {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-      onClick: (e: React.MouseEvent) => { e.preventDefault(); openWindow('contact'); }
+      href: "#mobile-contact",
+      onClick: (e: React.MouseEvent) => { 
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+          e.preventDefault();
+          document.getElementById('mobile-contact')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          e.preventDefault(); 
+          openWindow('contact'); 
+        }
+      }
     },
   ];
 
@@ -49,10 +73,37 @@ const DesktopWorkspace = () => {
     <div id="desktop-area" className="relative w-screen h-screen overflow-hidden bg-[#0A0A0B] text-white">
       <div className="absolute inset-0 z-0 overflow-y-auto overflow-x-hidden scrollbar-hide pb-32">
         <Hero />
+        
+        {/* Mobile scrollable content */}
+        <div className="md:hidden flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto">
+          <div id="mobile-projects" className="scroll-mt-6">
+            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+              <IconBriefcase className="w-6 h-6 text-neutral-400" />
+              <h2 className="text-2xl font-bold">Projects</h2>
+            </div>
+            <Projects />
+          </div>
+          
+          <div id="mobile-about" className="scroll-mt-6">
+            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+              <IconUser className="w-6 h-6 text-neutral-400" />
+              <h2 className="text-2xl font-bold">About Me</h2>
+            </div>
+            <About />
+          </div>
+          
+          <div id="mobile-contact" className="scroll-mt-6">
+            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+              <IconMail className="w-6 h-6 text-neutral-400" />
+              <h2 className="text-2xl font-bold">Contact</h2>
+            </div>
+            <Contact />
+          </div>
+        </div>
       </div>
 
-      {/* Windows */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      {/* Windows (Desktop only) */}
+      <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
         <div className="pointer-events-auto">
           <Window id="projects" title="Projects" defaultWidth={850} defaultHeight={650}>
             <Projects />
