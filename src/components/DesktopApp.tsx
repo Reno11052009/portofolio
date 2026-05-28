@@ -76,6 +76,15 @@ const DesktopWorkspace = () => {
         
         {/* Mobile scrollable content */}
         <div className="md:hidden flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto">
+
+          <div id="mobile-about" className="scroll-mt-6">
+            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+              <IconUser className="w-6 h-6 text-neutral-400" />
+              <h2 className="text-2xl font-bold">About Me</h2>
+            </div>
+            <About />
+          </div>
+
           <div id="mobile-projects" className="scroll-mt-6">
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconBriefcase className="w-6 h-6 text-neutral-400" />
@@ -84,13 +93,6 @@ const DesktopWorkspace = () => {
             <Projects />
           </div>
           
-          <div id="mobile-about" className="scroll-mt-6">
-            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
-              <IconUser className="w-6 h-6 text-neutral-400" />
-              <h2 className="text-2xl font-bold">About Me</h2>
-            </div>
-            <About />
-          </div>
           
           <div id="mobile-contact" className="scroll-mt-6">
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">

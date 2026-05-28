@@ -36,10 +36,10 @@ export default function About() {
                 <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Education</h4>
                 <p className="text-white text-[0.95rem] font-medium">Software Engineering</p>
               </div>
-              <div>
+              {/* <div>
                 <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Specialization</h4>
                 <p className="text-white text-[0.95rem] font-medium">Laravel & React Stack</p>
-              </div>
+              </div> */}
               <div>
                 <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Passion</h4>
                 <p className="text-white text-[0.95rem] font-medium">Performant Web Experience</p>
