@@ -114,7 +114,7 @@ const DesktopWorkspace = () => {
             <About />
           </Window>
           
-          <Window id="contact" title="Contact" defaultWidth={500} defaultHeight={400}>
+          <Window id="contact" title="Contact" defaultWidth={800} defaultHeight={500}>
             <Contact />
           </Window>
         </div>
