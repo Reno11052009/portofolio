@@ -34,13 +34,15 @@ export const Window: React.FC<WindowProps> = ({
     }
   }, []);
 
-  if (!mounted || !windowState?.isOpen) return null;
+  if (!mounted) return null;
 
-  const isMaximized = windowState.isMaximized;
+  const isMaximized = windowState?.isMaximized;
+  const isOpen = windowState?.isOpen;
+  const isMinimized = windowState?.isMinimized;
 
   return (
     <AnimatePresence>
-      {!windowState.isMinimized && (
+      {isOpen && !isMinimized && (
         <motion.div
           key={id}
           drag={!isMaximized}
@@ -58,7 +60,7 @@ export const Window: React.FC<WindowProps> = ({
             left: isMaximized ? 0 : undefined,
             borderRadius: isMaximized ? 0 : 12,
           }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20, transition: { duration: 0.15, ease: 'easeIn' } }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           className={`absolute flex flex-col bg-[#111113]/90 backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden`}
           style={{
