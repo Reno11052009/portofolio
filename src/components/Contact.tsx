@@ -82,7 +82,7 @@ export default function Contact() {
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-semibold">Email</span>
                       <span className="text-sm font-medium text-white truncate max-w-[170px] sm:max-w-none">
-                        reno@renreno.my.id
+                        reno@renoreno.my.id
                       </span>
                     </div>
                   </div>
