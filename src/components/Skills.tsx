@@ -17,6 +17,7 @@ import {
   SiHtml5,
   SiNextdotjs,
   SiTailwindcss,
+  SiPostgresql,
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
@@ -105,6 +106,15 @@ const techLogos: LogoItem[] = [
       </div>
     ),
     title: 'MySQL',
+  },
+  {
+    node: (
+      <div className="text-muted transition-all duration-300 flex items-center gap-2.5 text-[1rem] font-medium hover:text-white group">
+        <SiPostgresql className={iconClass} />
+        <span>PostgreSQL</span>
+      </div>
+    ),
+    title: 'PostgreSQL',
   },
   {
     node: (
