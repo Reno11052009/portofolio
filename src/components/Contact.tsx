@@ -15,7 +15,8 @@ import BorderGlow from './BorderGlow';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,14 +29,32 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setErrorMessage('');
     
-    // Simulate API request
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message.');
+      }
+
       setFormStatus('success');
-    }, 1500);
+    } catch (error: any) {
+      console.error('Contact form error:', error);
+      setErrorMessage(error?.message || 'Something went wrong. Please try again later.');
+      setFormStatus('error');
+    }
   };
 
   return (
@@ -59,17 +78,17 @@ export default function Contact() {
           <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* Left Side: Let's Connect Info */}
             <div className="flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium w-fit">
+              {/* <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium w-fit">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   Available for freelance & projects
-                </div> */}
+                </div>
                 
                 <h3 className="text-2xl font-bold text-white tracking-tight">Let's build something together</h3>
                 <p className="text-neutral-400 text-sm leading-relaxed">
                   Have an exciting project in mind, a freelance opportunity, or just want to connect? Send me a message and I'll get back to you as soon as possible.
                 </p>
-              </div>
+              </div> */}
 
               {/* Social Grid */}
               <div className="space-y-3">
@@ -228,6 +247,13 @@ export default function Contact() {
                         className="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/5 focus:border-[#7c5cff]/40 focus:bg-white/10 text-white placeholder-neutral-500 outline-none resize-none transition-all duration-200 text-xs"
                       />
                     </div>
+
+                    {formStatus === 'error' && (
+                      <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 shrink-0 animate-pulse" />
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
 
                     <button
                       type="submit"
