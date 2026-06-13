@@ -6,7 +6,6 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconMail,
-  IconCopy,
   IconCheck,
   IconSend,
   IconLoader2
@@ -14,7 +13,6 @@ import {
 import BorderGlow from './BorderGlow';
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
@@ -22,12 +20,6 @@ export default function Contact() {
     email: '',
     message: ''
   });
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('arsyamayreno480@gmail.com');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,7 +85,10 @@ export default function Contact() {
               {/* Social Grid */}
               <div className="space-y-3">
                 {/* Email Card */}
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-all duration-200">
+                <a
+                  href="mailto:reno@renoreno.my.id"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all duration-200 group no-underline"
+                >
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 rounded-lg bg-[#7c5cff]/10 text-[#7c5cff]">
                       <IconMail className="w-5 h-5" />
@@ -105,19 +100,10 @@ export default function Contact() {
                       </span>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="p-2 rounded-lg hover:bg-white/5 text-neutral-400 hover:text-white transition-all cursor-pointer"
-                    title="Copy Email Address"
-                  >
-                    {copied ? (
-                      <IconCheck className="w-4 h-4 text-emerald-400" />
-                    ) : (
-                      <IconCopy className="w-4 h-4" />
-                    )}
-                  </button>
-                </div>
+                  <div className="text-xs text-neutral-500 group-hover:text-neutral-300 transition-colors pr-2">
+                    Email →
+                  </div>
+                </a>
 
                 {/* GitHub Card */}
                 <a
@@ -213,7 +199,7 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your name"
+                        // placeholder="Your name"
                         className="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/5 focus:border-[#7c5cff]/40 focus:bg-white/10 text-white placeholder-neutral-500 outline-none transition-all duration-200 text-xs"
                       />
                     </div>
@@ -228,7 +214,7 @@ export default function Contact() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="your.email@example.com"
+                        // placeholder="your.email@example.com"
                         className="w-full px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/5 focus:border-[#7c5cff]/40 focus:bg-white/10 text-white placeholder-neutral-500 outline-none transition-all duration-200 text-xs"
                       />
                     </div>
