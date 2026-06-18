@@ -28,7 +28,7 @@ export default function About() {
           <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="md:col-span-2">
               <p className="text-muted leading-relaxed text-[1.05rem]">
-                I am a Software Engineering student with a strong focus on web development. I am experienced in using Laravel and React to build fast and responsive applications. I enjoy learning new technologies and continuously improving my skills through real-world projects.
+                Hi, I'm Reno, a Full Stack Web Developer passionate about building modern, scalable, and user-friendly web applications. I enjoy turning ideas into real products by creating fast, responsive, and reliable solutions. My primary technologies include React, Next.js, Laravel, Prisma, and PostgreSQL. I'm always eager to learn new technologies, improve my skills, and gain experience through real-world projects.
               </p>
             </div>
             <div className="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-white/5 pt-6 md:pt-0 md:pl-6">
