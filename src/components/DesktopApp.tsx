@@ -26,20 +26,6 @@ const DesktopWorkspace = () => {
 
   const dockItems = [
     {
-      title: "Projects",
-      icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#mobile-projects",
-      onClick: (e: React.MouseEvent) => { 
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
-          e.preventDefault();
-          document.getElementById('mobile-projects')?.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          e.preventDefault(); 
-          openWindow('projects'); 
-        }
-      }
-    },
-    {
       title: "About",
       icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-about",
@@ -50,6 +36,20 @@ const DesktopWorkspace = () => {
         } else {
           e.preventDefault(); 
           openWindow('about'); 
+        }
+      }
+    },
+    {
+      title: "Projects",
+      icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#mobile-projects",
+      onClick: (e: React.MouseEvent) => { 
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+          e.preventDefault();
+          document.getElementById('mobile-projects')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          e.preventDefault(); 
+          openWindow('projects'); 
         }
       }
     },
@@ -68,6 +68,7 @@ const DesktopWorkspace = () => {
       }
     },
   ];
+
 
   return (
     <div id="desktop-area" className="relative w-screen h-screen overflow-hidden bg-[#0A0A0B] text-white">
