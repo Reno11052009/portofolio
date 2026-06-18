@@ -12,6 +12,8 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import ScrambledText from '@/components/ScrambledText';
+
 
 // Icons
 import {
@@ -72,8 +74,9 @@ const DesktopWorkspace = () => {
 
   return (
     <div id="desktop-area" className="relative w-screen h-screen overflow-hidden bg-[#0A0A0B] text-white">
-      <div className="absolute inset-0 z-0 overflow-y-auto overflow-x-hidden scrollbar-hide pb-32">
+      <div className="absolute inset-0 z-0 overflow-y-auto md:overflow-hidden overflow-x-hidden scrollbar-hide pb-32 md:pb-0">
         <Hero />
+
         
         {/* Mobile scrollable content */}
         <div className="md:hidden flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto">
@@ -102,7 +105,20 @@ const DesktopWorkspace = () => {
             </div>
             <Contact />
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <ScrambledText
+              className="scrambled-text-demo"
+              radius={100}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+            >
+              RENO
+            </ScrambledText>
+          </div>
         </div>
+
       </div>
 
       {/* Windows (Desktop only) */}

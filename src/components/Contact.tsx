@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   IconBrandGithub,
@@ -11,6 +11,8 @@ import {
   IconLoader2
 } from '@tabler/icons-react';
 import BorderGlow from './BorderGlow';
+import ScrambledText from './ScrambledText';
+
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -20,9 +22,51 @@ export default function Contact() {
     email: '',
     message: ''
   });
+  const [cooldown, setCooldown] = useState<number>(0);
+
+  // Check cooldown on mount
+  useEffect(() => {
+    const lastSent = localStorage.getItem('contact_last_sent');
+    if (lastSent) {
+      const elapsed = Date.now() - parseInt(lastSent, 10);
+      const remaining = Math.ceil((60000 - elapsed) / 1000);
+      if (remaining > 0) {
+        setCooldown(remaining);
+      }
+    }
+  }, []);
+
+  // Countdown effect
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setInterval(() => {
+      setCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [cooldown]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check client-side rate limit
+    const lastSent = localStorage.getItem('contact_last_sent');
+    if (lastSent) {
+      const elapsed = Date.now() - parseInt(lastSent, 10);
+      if (elapsed < 60000) {
+        const remaining = Math.ceil((60000 - elapsed) / 1000);
+        setCooldown(remaining);
+        setErrorMessage(`Please wait ${remaining} seconds before sending another message.`);
+        setFormStatus('error');
+        return;
+      }
+    }
+
     setFormStatus('submitting');
     setErrorMessage('');
     
@@ -42,12 +86,15 @@ export default function Contact() {
       }
 
       setFormStatus('success');
+      localStorage.setItem('contact_last_sent', Date.now().toString());
+      setCooldown(60);
     } catch (error: any) {
       console.error('Contact form error:', error);
       setErrorMessage(error?.message || 'Something went wrong. Please try again later.');
       setFormStatus('error');
     }
   };
+
 
   return (
     <section id="contact" className="py-4 md:py-8">
@@ -243,13 +290,18 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      disabled={formStatus === 'submitting'}
+                      disabled={formStatus === 'submitting' || cooldown > 0}
                       className="w-full py-2.5 px-4 rounded-lg bg-[#7c5cff] hover:bg-[#6c4be0] text-white font-medium transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed text-xs shadow-lg shadow-[#7c5cff]/10"
                     >
                       {formStatus === 'submitting' ? (
                         <>
                           <IconLoader2 className="w-3.5 h-3.5 animate-spin" />
                           Sending...
+                        </>
+                      ) : cooldown > 0 ? (
+                        <>
+                          <IconLoader2 className="w-3.5 h-3.5 animate-spin text-neutral-400" />
+                          Wait {cooldown}s
                         </>
                       ) : (
                         <>
@@ -258,13 +310,25 @@ export default function Contact() {
                         </>
                       )}
                     </button>
+
                   </motion.form>
                 )}
               </AnimatePresence>
             </div>
           </div>
         </BorderGlow>
+        <ScrambledText
+          className="scrambled-text-demo mt-8 hidden md:block"
+          radius={100}
+          duration={1.2}
+          speed={0.5}
+          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+        >
+          RENO
+        </ScrambledText>
+
       </motion.div>
     </section>
+
   );
 }

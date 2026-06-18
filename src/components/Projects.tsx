@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import projects from '../data/projects'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import BorderGlow from './BorderGlow'
+import ScrambledText from './ScrambledText'
+
 
 const container = {
   hidden: {},
@@ -61,7 +63,18 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+        <ScrambledText
+          className="scrambled-text-demo mt-8 hidden md:block"
+          radius={100}
+          duration={1.2}
+          speed={0.5}
+          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+        >
+          RENO
+        </ScrambledText>
+
       </motion.div>
     </section>
+
   )
 }
