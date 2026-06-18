@@ -29,7 +29,7 @@ export default function Hero() {
           </h1>
           <p className="text-muted mb-4 max-w-xl">I build performant, accessible web apps and delightful experiences.</p>
           <div className="mt-2.5 text-muted">
-            <Typewriter roles={["Web Developer"]} />
+            <Typewriter roles={["Software Engineer", "Web Developer"]} />
           </div>
         </motion.div>
       </div>

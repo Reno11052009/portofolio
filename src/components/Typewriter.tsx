@@ -38,16 +38,26 @@ export default function Typewriter({ roles = [], speed = 120, hold = 1400 }: Typ
     }
   }, [roles, idx, subidx, reverse, speed, hold])
 
+  if (!roles.length) return null
+
+  const currentRole = roles[idx] || ''
+  const displayText = currentRole.slice(0, subidx)
+
   return (
-    <span className="typewriter">
-      {roles.map((role, i) => (
-        <span key={i} style={{ marginRight: '12px' }}>
-          <strong style={{ color: i === idx ? 'var(--accent)' : '#666' }}>
-            {i === idx ? role.slice(0, subidx) : role}
-          </strong>
-          {i === idx && <span className="cursor">|</span>}
-        </span>
-      ))}
+    <span className="typewriter inline-flex items-center font-bold text-xl md:text-2xl tracking-wide">
+      <style>{`
+        @keyframes typewriter-blink {
+          from, to { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .typewriter-cursor {
+          animation: typewriter-blink 0.8s step-end infinite;
+        }
+      `}</style>
+      <span className="bg-gradient-to-r from-[#a78bfa] via-[#7c5cff] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(124,92,255,0.2)]">
+        {displayText}
+      </span>
+      <span className="typewriter-cursor ml-1 text-[#7c5cff] font-light">|</span>
     </span>
   )
 }

@@ -31,13 +31,13 @@ const DesktopWorkspace = () => {
       title: "About",
       icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-about",
-      onClick: (e: React.MouseEvent) => { 
+      onClick: (e: React.MouseEvent) => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
           e.preventDefault();
           document.getElementById('mobile-about')?.scrollIntoView({ behavior: 'smooth' });
         } else {
-          e.preventDefault(); 
-          openWindow('about'); 
+          e.preventDefault();
+          openWindow('about');
         }
       }
     },
@@ -45,13 +45,13 @@ const DesktopWorkspace = () => {
       title: "Projects",
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-projects",
-      onClick: (e: React.MouseEvent) => { 
+      onClick: (e: React.MouseEvent) => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
           e.preventDefault();
           document.getElementById('mobile-projects')?.scrollIntoView({ behavior: 'smooth' });
         } else {
-          e.preventDefault(); 
-          openWindow('projects'); 
+          e.preventDefault();
+          openWindow('projects');
         }
       }
     },
@@ -59,13 +59,13 @@ const DesktopWorkspace = () => {
       title: "Contact",
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-contact",
-      onClick: (e: React.MouseEvent) => { 
+      onClick: (e: React.MouseEvent) => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
           e.preventDefault();
           document.getElementById('mobile-contact')?.scrollIntoView({ behavior: 'smooth' });
         } else {
-          e.preventDefault(); 
-          openWindow('contact'); 
+          e.preventDefault();
+          openWindow('contact');
         }
       }
     },
@@ -77,7 +77,7 @@ const DesktopWorkspace = () => {
       <div className="absolute inset-0 z-0 overflow-y-auto md:overflow-hidden overflow-x-hidden scrollbar-hide pb-32 md:pb-0">
         <Hero />
 
-        
+
         {/* Mobile scrollable content */}
         <div className="md:hidden flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto">
 
@@ -96,8 +96,8 @@ const DesktopWorkspace = () => {
             </div>
             <Projects />
           </div>
-          
-          
+
+
           <div id="mobile-contact" className="scroll-mt-6">
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconMail className="w-6 h-6 text-neutral-400" />
@@ -130,7 +130,7 @@ const DesktopWorkspace = () => {
           <Window id="about" title="About" defaultWidth={800} defaultHeight={500}>
             <About />
           </Window>
-          
+
           <Window id="contact" title="Contact" defaultWidth={800} defaultHeight={500}>
             <Contact />
           </Window>
