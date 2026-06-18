@@ -1,15 +1,28 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { Commet } from "react-loading-indicators";
+
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [phase, setPhase] = useState<"enter" | "hold" | "exit">("enter");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animFrameRef = useRef<number>(0);
+  const phaseRef = useRef(phase);
+
+  // Sync phase to ref to stop rendering on exit
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
 
   /* ── Particle canvas ── */
   useEffect(() => {
+    // Skip heavy animations if user prefers reduced motion
+    const prefersReducedMotion = typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -31,7 +44,10 @@ export default function LoadingScreen() {
     }
 
     const colors = ["#7c5cff", "#a78bfa", "#c4b5fd", "#818cf8", "#6366f1"];
-    const particles: Particle[] = Array.from({ length: 80 }, () => ({
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const count = isMobile ? 30 : 50; // Optimized count for performance
+
+    const particles: Particle[] = Array.from({ length: count }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       vx: (Math.random() - 0.5) * 0.4,
@@ -42,6 +58,11 @@ export default function LoadingScreen() {
     }));
 
     const draw = () => {
+      // Freeze rendering calculations during exit phase to free CPU/GPU resources
+      if (phaseRef.current === "exit") {
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (const p of particles) {
         p.x += p.vx;
@@ -112,12 +133,9 @@ export default function LoadingScreen() {
 
       {/* Center content */}
       <div className="loading-center">
-        {/* Spinning ring */}
-        <div className="loading-ring-wrapper">
-          <svg className="loading-ring" viewBox="0 0 100 100">
-            <circle className="loading-ring-track" cx="50" cy="50" r="44" />
-            <circle className="loading-ring-fill" cx="50" cy="50" r="44" />
-          </svg>
+        {/* Spinning ring replaced with Commet loader */}
+        <div className="loading-ring-wrapper flex items-center justify-center mb-6">
+          <Commet color={["#32cd32", "#7c5cff", "#38bdf8", "#5dd3ff"]} size="medium" text="" textColor="" />
         </div>
 
 
