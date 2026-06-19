@@ -132,25 +132,32 @@ export default function Contact() {
               {/* Social Grid */}
               <div className="space-y-3">
                 {/* Email Card */}
-                <a
-                  href="mailto:reno@renoreno.my.id"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all duration-200 group no-underline"
+                <div
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 transition-all duration-200"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-[#7c5cff]/10 text-[#7c5cff]">
+                  <div className="flex items-center gap-3 w-full">
+                    <div className="p-2.5 rounded-lg bg-[#7c5cff]/10 text-[#7c5cff] shrink-0">
                       <IconMail className="w-5 h-5" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-semibold">Email</span>
-                      <span className="text-sm font-medium text-white truncate max-w-[170px] sm:max-w-none">
-                        reno@renoreno.my.id
-                      </span>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-semibold mb-0.5">Email</span>
+                      <div className="flex flex-col gap-1 text-sm font-medium text-white">
+                        <a 
+                          href="mailto:reno@renoreno.my.id" 
+                          className="hover:text-[#7c5cff] transition-colors truncate max-w-[200px] sm:max-w-none no-underline"
+                        >
+                          reno@renoreno.my.id
+                        </a>
+                        <a 
+                          href="mailto:reno@renreno.my.id" 
+                          className="hover:text-[#7c5cff] transition-colors truncate max-w-[200px] sm:max-w-none no-underline"
+                        >
+                          reno@renreno.my.id
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="text-xs text-neutral-500 group-hover:text-neutral-300 transition-colors pr-2">
-                    Email →
-                  </div>
-                </a>
+                </div>
 
                 {/* GitHub Card */}
                 <a
