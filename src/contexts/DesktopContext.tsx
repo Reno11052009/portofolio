@@ -35,8 +35,9 @@ export const useDesktop = () => useContext(DesktopContext);
 export const DesktopProvider = ({ children }: { children: React.ReactNode }) => {
   const [windows, setWindows] = useState<Record<string, WindowState>>({
     about: { id: 'about', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10 },
-    projects: { id: 'projects', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 11 },
-    contact: { id: 'contact', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 12 },
+    experience: { id: 'experience', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 11 },
+    projects: { id: 'projects', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 12 },
+    contact: { id: 'contact', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 13 },
   });
   const [topZIndex, setTopZIndex] = useState(20);
 

@@ -107,7 +107,7 @@ export default function NotFound() {
                 <div className="text-[10px] uppercase font-bold tracking-widest text-red-500">
                   fatal_error_detected
                 </div>
-                
+
                 <h1 className="text-3xl font-extrabold tracking-tight text-white flex items-center gap-2 font-mono">
                   <span>404</span>
                   <span className="text-neutral-600 font-normal">|</span>
@@ -177,7 +177,7 @@ export default function NotFound() {
                 <IconHome className="w-4 h-4" />
                 <span>Return to Desktop</span>
               </Link>
-              
+
               <button
                 onClick={handleStartScan}
                 disabled={scanState === 'scanning'}

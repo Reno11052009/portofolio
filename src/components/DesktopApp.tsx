@@ -9,6 +9,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 // Sections
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
@@ -42,8 +43,22 @@ const DesktopWorkspace = () => {
       }
     },
     {
-      title: "Projects",
+      title: "Experience",
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#mobile-experience",
+      onClick: (e: React.MouseEvent) => {
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+          e.preventDefault();
+          document.getElementById('mobile-experience')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          e.preventDefault();
+          openWindow('experience');
+        }
+      }
+    },
+    {
+      title: "Projects",
+      icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-projects",
       onClick: (e: React.MouseEvent) => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) {
@@ -89,9 +104,17 @@ const DesktopWorkspace = () => {
             <About />
           </div>
 
-          <div id="mobile-projects" className="scroll-mt-6">
+          <div id="mobile-experience" className="scroll-mt-6">
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconBriefcase className="w-6 h-6 text-neutral-400" />
+              <h2 className="text-2xl font-bold">Experience</h2>
+            </div>
+            <Experience />
+          </div>
+
+          <div id="mobile-projects" className="scroll-mt-6">
+            <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+              <IconTerminal2 className="w-6 h-6 text-neutral-400" />
               <h2 className="text-2xl font-bold">Projects</h2>
             </div>
             <Projects />
@@ -129,6 +152,9 @@ const DesktopWorkspace = () => {
           </Window>
           <Window id="about" title="About" defaultWidth={800} defaultHeight={500}>
             <About />
+          </Window>
+          <Window id="experience" title="Experience" defaultWidth={850} defaultHeight={600}>
+            <Experience />
           </Window>
 
           <Window id="contact" title="Contact" defaultWidth={800} defaultHeight={500}>
