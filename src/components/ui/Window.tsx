@@ -56,8 +56,8 @@ export const Window: React.FC<WindowProps> = ({
             y: 0,
             width: isMaximized ? '100vw' : defaultWidth,
             height: isMaximized ? 'calc(100vh - 80px)' : defaultHeight,
-            top: isMaximized ? 0 : undefined,
-            left: isMaximized ? 0 : undefined,
+            top: isMaximized ? 0 : `calc(50vh - ${defaultHeight / 2}px)`,
+            left: isMaximized ? 0 : `calc(50vw - ${defaultWidth / 2}px)`,
             borderRadius: isMaximized ? 0 : 12,
           }}
           exit={{ opacity: 0, scale: 0.95, y: 20, transition: { duration: 0.15, ease: 'easeIn' } }}
@@ -67,8 +67,6 @@ export const Window: React.FC<WindowProps> = ({
             zIndex: windowState.zIndex,
             maxWidth: '100vw',
             maxHeight: 'calc(100vh - 80px)', // Leave space for dock
-            // If not maximized, center it initially.
-            ...( !isMaximized && { top: '10%', left: 'max(10%, calc(50vw - 400px))' } )
           }}
         >
           {/* Title Bar */}

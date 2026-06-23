@@ -49,7 +49,7 @@ const experiences: Experience[] = [
   {
     id: 3,
     role: 'Full Stack Web Developer',
-    company: 'Freelance',
+    company: '',
     period: '2024 - Present',
     description: 'Building modern and responsive web and mobile applications using React, Laravel, Node.js, and Flutter. Involved in creating complex platforms such as digital bio platforms with Midtrans integration and real-time chat applications using WebSockets.',
   },
