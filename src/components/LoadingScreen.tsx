@@ -2,9 +2,11 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Commet } from "react-loading-indicators";
+import { useDesktop } from "@/contexts/DesktopContext";
 
 
 export default function LoadingScreen() {
+  const { viewMode } = useDesktop();
   const [visible, setVisible] = useState(true);
   const [phase, setPhase] = useState<"enter" | "hold" | "exit">("enter");
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -111,11 +113,13 @@ export default function LoadingScreen() {
 
   /* ── Phase timeline ── */
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("hold"), 600);
-    const t2 = setTimeout(() => setPhase("exit"), 2400);
-    const t3 = setTimeout(() => setVisible(false), 3100);
+    setVisible(true);
+    setPhase("enter");
+    const t1 = setTimeout(() => setPhase("hold"), 400);
+    const t2 = setTimeout(() => setPhase("exit"), 1500);
+    const t3 = setTimeout(() => setVisible(false), 2200);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, []);
+  }, [viewMode]);
 
   if (!visible) return null;
 

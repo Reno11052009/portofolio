@@ -23,7 +23,7 @@ export const Window: React.FC<WindowProps> = ({
   const { windows, closeWindow, minimizeWindow, maximizeWindow, focusWindow } = useDesktop();
   const windowState = windows[id];
   const constraintsRef = useRef<HTMLDivElement>(null);
-  
+
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -71,9 +71,8 @@ export const Window: React.FC<WindowProps> = ({
         >
           {/* Title Bar */}
           <div
-            className={`flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5 ${
-              !isMaximized ? 'cursor-grab active:cursor-grabbing' : ''
-            }`}
+            className={`flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5 ${!isMaximized ? 'cursor-grab active:cursor-grabbing' : ''
+              }`}
             onDoubleClick={() => maximizeWindow(id)}
           >
             <div className="flex items-center gap-2">

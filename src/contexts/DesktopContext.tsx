@@ -10,6 +10,8 @@ export type WindowState = {
   zIndex: number;
 };
 
+export type ViewMode = 'window' | 'scroll';
+
 type DesktopContextType = {
   windows: Record<string, WindowState>;
   openWindow: (id: string) => void;
@@ -17,6 +19,8 @@ type DesktopContextType = {
   minimizeWindow: (id: string) => void;
   maximizeWindow: (id: string) => void;
   focusWindow: (id: string) => void;
+  viewMode: ViewMode;
+  setViewMode: (mode: ViewMode) => void;
 };
 
 const defaultContext: DesktopContextType = {
@@ -26,6 +30,8 @@ const defaultContext: DesktopContextType = {
   minimizeWindow: () => {},
   maximizeWindow: () => {},
   focusWindow: () => {},
+  viewMode: 'window',
+  setViewMode: () => {},
 };
 
 const DesktopContext = createContext<DesktopContextType>(defaultContext);
@@ -38,8 +44,10 @@ export const DesktopProvider = ({ children }: { children: React.ReactNode }) => 
     experience: { id: 'experience', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 11 },
     projects: { id: 'projects', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 12 },
     contact: { id: 'contact', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 13 },
+    settings: { id: 'settings', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 14 },
   });
   const [topZIndex, setTopZIndex] = useState(20);
+  const [viewMode, setViewMode] = useState<ViewMode>('window');
 
   const focusWindow = (id: string) => {
     setTopZIndex((prev) => prev + 1);
@@ -87,6 +95,8 @@ export const DesktopProvider = ({ children }: { children: React.ReactNode }) => 
         minimizeWindow,
         maximizeWindow,
         focusWindow,
+        viewMode,
+        setViewMode,
       }}
     >
       {children}

@@ -22,7 +22,7 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
+  items: { title: string; icon: React.ReactNode; href: string; hideOnMobile?: boolean; onClick?: (e: React.MouseEvent) => void }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -38,7 +38,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
+  items: { title: string; icon: React.ReactNode; href: string; hideOnMobile?: boolean; onClick?: (e: React.MouseEvent) => void }[];
   className?: string;
 }) => {
   return (
@@ -48,7 +48,7 @@ const FloatingDockMobile = ({
         className
       )}
     >
-      {items.map((item) => (
+      {items.filter(item => !item.hideOnMobile).map((item) => (
         <a
           href={item.href}
           key={item.title}
@@ -66,7 +66,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string; onClick?: (e: React.MouseEvent) => void }[];
+  items: { title: string; icon: React.ReactNode; href: string; hideOnMobile?: boolean; onClick?: (e: React.MouseEvent) => void }[];
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);

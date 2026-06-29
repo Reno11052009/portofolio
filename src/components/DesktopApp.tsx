@@ -21,11 +21,40 @@ import {
   IconTerminal2,
   IconBriefcase,
   IconMail,
-  IconUser
+  IconUser,
+  IconSettings
 } from '@tabler/icons-react';
 
+const SettingsContent = () => {
+  const { viewMode, setViewMode } = useDesktop();
+  return (
+    <div className="p-6 h-full text-white flex flex-col space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold mb-4">Desktop View Mode</h3>
+        <p className="text-sm text-neutral-400 mb-6">Choose how you want to navigate the portfolio on desktop.</p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={() => setViewMode('window')}
+            className={`flex-1 p-4 rounded-xl border transition-all text-left ${viewMode === 'window' ? 'bg-white/10 border-white/40 ring-1 ring-white/20' : 'border-white/10 hover:bg-white/5'}`}
+          >
+            <div className="font-semibold mb-1">Window Mode</div>
+            <div className="text-xs text-neutral-400">Classic desktop UI with draggable windows.</div>
+          </button>
+          <button
+            onClick={() => setViewMode('scroll')}
+            className={`flex-1 p-4 rounded-xl border transition-all text-left ${viewMode === 'scroll' ? 'bg-white/10 border-white/40 ring-1 ring-white/20' : 'border-white/10 hover:bg-white/5'}`}
+          >
+            <div className="font-semibold mb-1">Scroll Mode</div>
+            <div className="text-xs text-neutral-400">Modern single-page scrolling experience.</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const DesktopWorkspace = () => {
-  const { openWindow, windows } = useDesktop();
+  const { openWindow, viewMode } = useDesktop();
 
   const dockItems = [
     {
@@ -33,7 +62,7 @@ const DesktopWorkspace = () => {
       icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-about",
       onClick: (e: React.MouseEvent) => {
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && (window.innerWidth < 768 || viewMode === 'scroll')) {
           e.preventDefault();
           document.getElementById('mobile-about')?.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -47,7 +76,7 @@ const DesktopWorkspace = () => {
       icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-experience",
       onClick: (e: React.MouseEvent) => {
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && (window.innerWidth < 768 || viewMode === 'scroll')) {
           e.preventDefault();
           document.getElementById('mobile-experience')?.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -61,7 +90,7 @@ const DesktopWorkspace = () => {
       icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-projects",
       onClick: (e: React.MouseEvent) => {
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && (window.innerWidth < 768 || viewMode === 'scroll')) {
           e.preventDefault();
           document.getElementById('mobile-projects')?.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -75,7 +104,7 @@ const DesktopWorkspace = () => {
       icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#mobile-contact",
       onClick: (e: React.MouseEvent) => {
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && (window.innerWidth < 768 || viewMode === 'scroll')) {
           e.preventDefault();
           document.getElementById('mobile-contact')?.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -84,17 +113,27 @@ const DesktopWorkspace = () => {
         }
       }
     },
+    {
+      title: "Settings",
+      icon: <IconSettings className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#",
+      hideOnMobile: true,
+      onClick: (e: React.MouseEvent) => {
+        e.preventDefault();
+        openWindow('settings');
+      }
+    },
   ];
 
 
   return (
     <div id="desktop-area" className="relative w-screen h-screen overflow-hidden bg-[#0A0A0B] text-white">
-      <div className="absolute inset-0 z-0 overflow-y-auto md:overflow-hidden overflow-x-hidden scrollbar-hide pb-32 md:pb-0">
+      <div className={`absolute inset-0 z-0 overflow-x-hidden scrollbar-hide pb-32 ${viewMode === 'window' ? 'overflow-y-auto md:overflow-hidden md:pb-0' : 'overflow-y-auto'}`}>
         <Hero />
 
 
-        {/* Mobile scrollable content */}
-        <div className="md:hidden flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto">
+        {/* Scrollable content */}
+        <div className={`flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto ${viewMode === 'window' ? 'md:hidden' : ''}`}>
 
           <div id="mobile-about" className="scroll-mt-6">
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
@@ -147,18 +186,24 @@ const DesktopWorkspace = () => {
       {/* Windows (Desktop only) */}
       <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
         <div className="pointer-events-auto">
-          <Window id="projects" title="Projects" defaultWidth={850} defaultHeight={650}>
-            <Projects />
-          </Window>
-          <Window id="about" title="About" defaultWidth={800} defaultHeight={500}>
-            <About />
-          </Window>
-          <Window id="experience" title="Experience" defaultWidth={850} defaultHeight={600}>
-            <Experience />
-          </Window>
-
-          <Window id="contact" title="Contact" defaultWidth={800} defaultHeight={500}>
-            <Contact />
+          {viewMode === 'window' && (
+            <>
+              <Window id="projects" title="Projects" defaultWidth={850} defaultHeight={650}>
+                <Projects />
+              </Window>
+              <Window id="about" title="About" defaultWidth={800} defaultHeight={500}>
+                <About />
+              </Window>
+              <Window id="experience" title="Experience" defaultWidth={850} defaultHeight={600}>
+                <Experience />
+              </Window>
+              <Window id="contact" title="Contact" defaultWidth={800} defaultHeight={500}>
+                <Contact />
+              </Window>
+            </>
+          )}
+          <Window id="settings" title="Settings" defaultWidth={500} defaultHeight={350}>
+            <SettingsContent />
           </Window>
         </div>
       </div>

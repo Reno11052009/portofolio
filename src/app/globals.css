@@ -53,7 +53,7 @@ body {
 
 .border-glow-card::before,
 .border-glow-card::after,
-.border-glow-card > .edge-light {
+.border-glow-card>.edge-light {
   content: "";
   position: absolute;
   inset: 0;
@@ -64,7 +64,7 @@ body {
 
 .border-glow-card:not(:hover):not(.sweep-active)::before,
 .border-glow-card:not(:hover):not(.sweep-active)::after,
-.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
+.border-glow-card:not(:hover):not(.sweep-active)>.edge-light {
   opacity: 0;
   transition: opacity 0.75s ease-in-out;
 }
@@ -86,13 +86,11 @@ body {
   opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
 
   mask-image:
-    conic-gradient(
-      from var(--cursor-angle) at center,
+    conic-gradient(from var(--cursor-angle) at center,
       black calc(var(--cone-spread) * 1%),
       transparent calc((var(--cone-spread) + 15) * 1%),
       transparent calc((100 - var(--cone-spread) - 15) * 1%),
-      black calc((100 - var(--cone-spread)) * 1%)
-    );
+      black calc((100 - var(--cone-spread)) * 1%));
 }
 
 .border-glow-card::after {
@@ -121,21 +119,19 @@ body {
   mix-blend-mode: soft-light;
 }
 
-.border-glow-card > .edge-light {
+.border-glow-card>.edge-light {
   inset: calc(var(--glow-padding) * -1);
   pointer-events: none;
   z-index: 1;
 
   mask-image:
-    conic-gradient(
-      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
-    );
+    conic-gradient(from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
 
   opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
   mix-blend-mode: plus-lighter;
 }
 
-.border-glow-card > .edge-light::before {
+.border-glow-card>.edge-light::before {
   content: "";
   position: absolute;
   inset: var(--glow-padding);
@@ -296,20 +292,16 @@ body {
 
 .logoloop--fade::before {
   left: 0;
-  background: linear-gradient(
-    to right,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to right,
+      var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .logoloop--fade::after {
   right: 0;
-  background: linear-gradient(
-    to left,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to left,
+      var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .logoloop--vertical.logoloop--fade::before,
@@ -323,21 +315,17 @@ body {
 .logoloop--vertical.logoloop--fade::before {
   top: 0;
   bottom: auto;
-  background: linear-gradient(
-    to bottom,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to bottom,
+      var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .logoloop--vertical.logoloop--fade::after {
   bottom: 0;
   top: auto;
-  background: linear-gradient(
-    to top,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to top,
+      var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -391,8 +379,17 @@ body {
 }
 
 @keyframes loading-glow-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50%       { transform: scale(1.18); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
 }
 
 /* Center stack */
@@ -409,7 +406,10 @@ body {
 }
 
 @keyframes loading-center-in {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Ring */
@@ -426,8 +426,13 @@ body {
 }
 
 @keyframes loading-ring-spin {
-  from { transform: rotate(-90deg); }
-  to   { transform: rotate(270deg); }
+  from {
+    transform: rotate(-90deg);
+  }
+
+  to {
+    transform: rotate(270deg);
+  }
 }
 
 .loading-ring-track {
@@ -448,9 +453,17 @@ body {
 }
 
 @keyframes loading-ring-dash {
-  0%   { stroke-dashoffset: 240; }
-  50%  { stroke-dashoffset: 60; }
-  100% { stroke-dashoffset: 240; }
+  0% {
+    stroke-dashoffset: 240;
+  }
+
+  50% {
+    stroke-dashoffset: 60;
+  }
+
+  100% {
+    stroke-dashoffset: 240;
+  }
 }
 
 /* Fallback gradient via mask – pure CSS approach */
@@ -521,7 +534,10 @@ body {
 }
 
 @keyframes loading-slide-up {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Tagline */
@@ -536,7 +552,9 @@ body {
 }
 
 @keyframes loading-fade-in {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Progress bar */
@@ -558,13 +576,25 @@ body {
 }
 
 @keyframes loading-progress {
-  0%   { width: 0%; }
-  40%  { width: 45%; }
-  70%  { width: 75%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+
+  40% {
+    width: 45%;
+  }
+
+  70% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .loading-overlay,
   .loading-center,
   .loading-name-first,
@@ -594,7 +624,8 @@ body {
 .scrollbar-hide,
 html,
 body {
-  -ms-overflow-style: none !important; /* IE and Edge */
-  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
 }
-
