@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import experiences from '../data/experiences';
 import BorderGlow from './BorderGlow';
-import ScrambledText from './ScrambledText';
 import { IconBriefcase } from '@tabler/icons-react';
 import { useDesktop } from '@/contexts/DesktopContext';
 
@@ -61,17 +60,6 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
-        {viewMode !== 'scroll' && (
-          <ScrambledText
-            className="scrambled-text-demo mt-8 hidden md:block"
-            radius={100}
-            duration={1.2}
-            speed={0.5}
-            scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
-          >
-            RENO
-          </ScrambledText>
-        )}
       </motion.div>
     </section>
   );
