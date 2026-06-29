@@ -6,6 +6,7 @@ import projects from '../data/projects'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import BorderGlow from './BorderGlow'
 import ScrambledText from './ScrambledText'
+import { useDesktop } from '@/contexts/DesktopContext'
 
 
 const container = {
@@ -19,6 +20,7 @@ const card = {
 }
 
 export default function Projects() {
+  const { viewMode } = useDesktop();
   return (
     <section id="projects" className="py-8">
       <motion.div
@@ -63,15 +65,17 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-        <ScrambledText
-          className="scrambled-text-demo mt-8 hidden md:block"
-          radius={100}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
-        >
-          RENO
-        </ScrambledText>
+        {viewMode !== 'scroll' && (
+          <ScrambledText
+            className="scrambled-text-demo mt-8 hidden md:block"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+          >
+            RENO
+          </ScrambledText>
+        )}
 
       </motion.div>
     </section>

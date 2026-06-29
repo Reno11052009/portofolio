@@ -12,9 +12,11 @@ import {
 } from '@tabler/icons-react';
 import BorderGlow from './BorderGlow';
 import ScrambledText from './ScrambledText';
+import { useDesktop } from '@/contexts/DesktopContext';
 
 
 export default function Contact() {
+  const { viewMode } = useDesktop();
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
@@ -324,15 +326,17 @@ export default function Contact() {
             </div>
           </div>
         </BorderGlow>
-        <ScrambledText
-          className="scrambled-text-demo mt-8 hidden md:block"
-          radius={100}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
-        >
-          RENO
-        </ScrambledText>
+        {viewMode !== 'scroll' && (
+          <ScrambledText
+            className="scrambled-text-demo mt-8 hidden md:block"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+          >
+            RENO
+          </ScrambledText>
+        )}
 
       </motion.div>
     </section>

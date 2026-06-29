@@ -4,9 +4,11 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import BorderGlow from './BorderGlow'
 import ScrambledText from './ScrambledText'
+import { useDesktop } from '@/contexts/DesktopContext'
 
 
 export default function About() {
+  const { viewMode } = useDesktop();
   return (
     <section id="about" className="py-20">
       <motion.div
@@ -49,15 +51,17 @@ export default function About() {
             </div>
           </div>
         </BorderGlow>
-        <ScrambledText
-          className="scrambled-text-demo mt-8 hidden md:block"
-          radius={100}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
-        >
-          RENO
-        </ScrambledText>
+        {viewMode !== 'scroll' && (
+          <ScrambledText
+            className="scrambled-text-demo mt-8 hidden md:block"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+          >
+            RENO
+          </ScrambledText>
+        )}
 
       </motion.div>
     </section>

@@ -6,6 +6,7 @@ import experiences from '../data/experiences';
 import BorderGlow from './BorderGlow';
 import ScrambledText from './ScrambledText';
 import { IconBriefcase } from '@tabler/icons-react';
+import { useDesktop } from '@/contexts/DesktopContext';
 
 const container = {
   hidden: {},
@@ -18,6 +19,7 @@ const item = {
 };
 
 export default function Experience() {
+  const { viewMode } = useDesktop();
   return (
     <section id="experience" className="py-8">
       <motion.div
@@ -59,15 +61,17 @@ export default function Experience() {
             </motion.div>
           ))}
         </div>
-        <ScrambledText
-          className="scrambled-text-demo mt-8 hidden md:block"
-          radius={100}
-          duration={1.2}
-          speed={0.5}
-          scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
-        >
-          RENO
-        </ScrambledText>
+        {viewMode !== 'scroll' && (
+          <ScrambledText
+            className="scrambled-text-demo mt-8 hidden md:block"
+            radius={100}
+            duration={1.2}
+            speed={0.5}
+            scrambleChars="░▒▓█<>?/[]{}|+=*^%$#@!"
+          >
+            RENO
+          </ScrambledText>
+        )}
       </motion.div>
     </section>
   );
