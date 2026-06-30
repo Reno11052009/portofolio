@@ -127,8 +127,8 @@ const DesktopWorkspace = () => {
 
 
   return (
-    <div id="desktop-area" className="relative w-screen h-screen overflow-hidden bg-[#0A0A0B] text-white">
-      <div className={`absolute inset-0 z-0 overflow-x-hidden scrollbar-hide pb-32 ${viewMode === 'window' ? 'overflow-y-auto md:overflow-hidden md:pb-0' : 'overflow-y-auto'}`}>
+    <div id="desktop-area" className={`relative w-full bg-[#0A0A0B] text-white ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden' : 'min-h-screen'}`}>
+      <div className={`z-0 overflow-x-hidden pb-32 ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden md:pb-0' : ''}`}>
         <Hero />
 
 
@@ -184,7 +184,7 @@ const DesktopWorkspace = () => {
       </div>
 
       {/* Windows (Desktop only) */}
-      <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
+      <div className="hidden md:block fixed inset-0 z-10 pointer-events-none">
         <div className="pointer-events-auto">
           {viewMode === 'window' && (
             <>
