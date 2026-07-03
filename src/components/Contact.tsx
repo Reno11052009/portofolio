@@ -8,7 +8,8 @@ import {
   IconMail,
   IconCheck,
   IconSend,
-  IconLoader2
+  IconLoader2,
+  IconMapPin
 } from '@tabler/icons-react';
 import BorderGlow from './BorderGlow';
 import { useDesktop } from '@/contexts/DesktopContext';
@@ -149,12 +150,6 @@ export default function Contact() {
                         >
                           reno@renoreno.my.id
                         </a>
-                        <a 
-                          href="mailto:reno@renreno.my.id" 
-                          className="hover:text-[#7c5cff] transition-colors truncate max-w-[200px] sm:max-w-none no-underline"
-                        >
-                          reno@renreno.my.id
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -201,6 +196,25 @@ export default function Contact() {
                     Follow →
                   </div>
                 </a>
+
+                {/* Location Card */}
+                <div
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3 w-full">
+                    <div className="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0">
+                      <IconMapPin className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-semibold mb-0.5">Location</span>
+                      <div className="flex flex-col gap-1 text-sm font-medium text-white">
+                        <span className="truncate max-w-[200px] sm:max-w-none">
+                          Kab. Malang, Jawa Timur, Indonesia
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
