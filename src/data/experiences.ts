@@ -1,10 +1,4 @@
-export interface Experience {
-  id: number;
-  role: string;
-  company: string;
-  period: string;
-  description: string;
-}
+import { Experience } from "@/types";
 
 const getPKLPeriod = () => {
   const start = new Date('2025-12-01T00:00:00');

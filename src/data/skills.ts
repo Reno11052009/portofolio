@@ -1,7 +1,4 @@
-export interface Skill {
-  name: string;
-  level: number;
-}
+import { Skill } from "@/types";
 
 const skills: Skill[] = [
   { name: 'JavaScript', level: 70 },

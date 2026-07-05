@@ -1,10 +1,4 @@
-export interface Project {
-  id: number;
-  title: string;
-  desc: string;
-  demo: string;
-  repo: string;
-}
+import { Project } from "@/types";
 
 const projects: Project[] = [
   { id: 1, title: 'Ecomerce Flutter', desc: 'Mobile e-commerce application built with Flutter, featuring product listings, cart, and checkout.', demo: '#', repo: 'https://github.com/Reno11052009/ecomerce_flutter.git' },

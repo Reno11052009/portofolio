@@ -29,8 +29,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="flex flex-col">
-        <SmoothScrolling>{children}</SmoothScrolling>
+      <body className="flex flex-col min-h-screen text-white bg-black">
+        <SmoothScrolling>
+          {children}
+        </SmoothScrolling>
       </body>
     </html>
   );
