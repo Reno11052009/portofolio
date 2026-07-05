@@ -16,6 +16,8 @@ import Contact from '@/components/Contact';
 import ScrambledText from '@/components/ScrambledText';
 
 
+import { motion } from 'framer-motion';
+
 // Icons
 import {
   IconTerminal2,
@@ -125,6 +127,14 @@ const DesktopWorkspace = () => {
     },
   ];
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } // Custom easing similar to Lenis defaults
+    }
+  };
 
   return (
     <div id="desktop-area" className={`relative w-full bg-[#0A0A0B] text-white ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden' : 'min-h-screen'}`}>
@@ -135,38 +145,66 @@ const DesktopWorkspace = () => {
         {/* Scrollable content */}
         <div className={`flex flex-col space-y-24 px-4 pb-24 mt-12 max-w-7xl mx-auto ${viewMode === 'window' ? 'md:hidden' : ''}`}>
 
-          <div id="mobile-about" className="scroll-mt-6">
+          <motion.div 
+            id="mobile-about" 
+            className="scroll-mt-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={sectionVariants}
+          >
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconUser className="w-6 h-6 text-neutral-400" />
               <h2 className="text-2xl font-bold">About Me</h2>
             </div>
             <About />
-          </div>
+          </motion.div>
 
-          <div id="mobile-experience" className="scroll-mt-6">
+          <motion.div 
+            id="mobile-experience" 
+            className="scroll-mt-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={sectionVariants}
+          >
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconBriefcase className="w-6 h-6 text-neutral-400" />
               <h2 className="text-2xl font-bold">Experience</h2>
             </div>
             <Experience />
-          </div>
+          </motion.div>
 
-          <div id="mobile-projects" className="scroll-mt-6">
+          <motion.div 
+            id="mobile-projects" 
+            className="scroll-mt-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={sectionVariants}
+          >
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconTerminal2 className="w-6 h-6 text-neutral-400" />
               <h2 className="text-2xl font-bold">Projects</h2>
             </div>
             <Projects />
-          </div>
+          </motion.div>
 
 
-          <div id="mobile-contact" className="scroll-mt-6">
+          <motion.div 
+            id="mobile-contact" 
+            className="scroll-mt-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={sectionVariants}
+          >
             <div className="mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
               <IconMail className="w-6 h-6 text-neutral-400" />
               <h2 className="text-2xl font-bold">Contact</h2>
             </div>
             <Contact />
-          </div>
+          </motion.div>
 
           <div className="mt-8 flex justify-center">
             <ScrambledText

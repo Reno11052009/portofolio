@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
         <SmoothScrolling>
           {children}
         </SmoothScrolling>
+        <Analytics />
       </body>
     </html>
   );
