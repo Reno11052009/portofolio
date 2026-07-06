@@ -3,16 +3,16 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Typewriter from './Typewriter'
-import Skills from './Skills'
+import TechMarquee from './TechMarquee'
 
 
 const left = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeInOut' as const } }
+  initial: { opacity: 0, x: -20 },
+  animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 }
 
 export default function Hero() {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToProjects = (e: React.MouseEvent) => {
     e.preventDefault()
     const element = document.getElementById('projects')
     if (element) {
@@ -35,7 +35,7 @@ export default function Hero() {
       </div>
 
       <div className="w-full mt-10 md:mt-6">
-        <Skills />
+        <TechMarquee />
       </div>
     </section>
 

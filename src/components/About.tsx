@@ -6,6 +6,8 @@ import BorderGlow from './BorderGlow'
 import { useDesktop } from '@/contexts/DesktopContext'
 
 
+import Skills from './Skills'
+
 export default function About() {
   const { viewMode } = useDesktop();
   return (
@@ -39,10 +41,6 @@ export default function About() {
                 <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Education</h4>
                 <p className="text-white text-[0.95rem] font-medium">Software Engineering</p>
               </div>
-              {/* <div>
-                <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Specialization</h4>
-                <p className="text-white text-[0.95rem] font-medium">Laravel & React Stack</p>
-              </div> */}
               <div>
                 <h4 className="text-accent text-[0.85rem] uppercase tracking-wider font-semibold mb-1">Passion</h4>
                 <p className="text-white text-[0.95rem] font-medium">Performant Web Experience</p>
@@ -51,7 +49,11 @@ export default function About() {
           </div>
         </BorderGlow>
       </motion.div>
-    </section>
 
+      <div className="mt-12">
+        <h3 className="text-[1.8rem] font-bold text-center mb-[-1rem]">Tech Stack</h3>
+        <Skills />
+      </div>
+    </section>
   )
 }

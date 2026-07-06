@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   description: "Personal portfolio showcasing web development projects and skills.",
 };
 
-import SmoothScrolling from "@/components/SmoothScrolling";
+import dynamic from "next/dynamic";
+const SmoothScrolling = dynamic(() => import("@/components/SmoothScrolling"));
+
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
