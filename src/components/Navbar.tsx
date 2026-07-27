@@ -35,7 +35,7 @@ export default function Navbar() {
     }
   }
 
-  const linkClass = "text-muted no-underline relative py-1 after:content-[''] after:absolute after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-accent after:to-[#5dd3ff] after:bottom-[-2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-[280ms] after:ease-[cubic-bezier(0.2,0.9,0.2,1)] hover:after:scale-x-100";
+  const linkClass = "text-muted no-underline relative py-1 after:content-[''] after:absolute after:left-0 after:right-0 after:h-[2px] after:bg-accent after:bottom-[-2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-[280ms] after:ease-[cubic-bezier(0.2,0.9,0.2,1)] hover:after:scale-x-100";
   const mobileLinkClass = "text-muted no-underline py-2.5 block transition-colors duration-200 hover:text-accent";
 
   return (

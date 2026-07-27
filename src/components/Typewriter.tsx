@@ -54,7 +54,7 @@ export default function Typewriter({ roles = [], speed = 120, hold = 1400 }: Typ
           animation: typewriter-blink 0.8s step-end infinite;
         }
       `}</style>
-      <span className="bg-gradient-to-r from-[#a78bfa] via-[#7c5cff] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(124,92,255,0.2)]">
+      <span className="text-[#a78bfa] drop-shadow-[0_2px_8px_rgba(124,92,255,0.2)]">
         {displayText}
       </span>
       <span className="typewriter-cursor ml-1 text-[#7c5cff] font-light">|</span>

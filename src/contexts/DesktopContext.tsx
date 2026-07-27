@@ -30,7 +30,7 @@ const defaultContext: DesktopContextType = {
   minimizeWindow: () => {},
   maximizeWindow: () => {},
   focusWindow: () => {},
-  viewMode: 'window',
+  viewMode: 'scroll',
   setViewMode: () => {},
 };
 
@@ -47,7 +47,7 @@ export const DesktopProvider = ({ children }: { children: React.ReactNode }) => 
     settings: { id: 'settings', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 14 },
   });
   const [topZIndex, setTopZIndex] = useState(20);
-  const [viewMode, setViewMode] = useState<ViewMode>('window');
+  const [viewMode, setViewMode] = useState<ViewMode>('scroll');
 
   const focusWindow = (id: string) => {
     setTopZIndex((prev) => prev + 1);
