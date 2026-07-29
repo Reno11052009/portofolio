@@ -45,16 +45,16 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="py-20 md:py-0 flex flex-col items-center justify-center min-h-screen md:min-h-0 md:h-[calc(100vh-140px)] w-full overflow-hidden">
-      <div className="flex-1 w-full max-w-[1200px] mx-auto px-5 mt-10 md:mt-0 flex flex-col justify-center relative">
+    <section id="home" className="pt-[15vh] md:pt-0 pb-16 md:py-0 flex flex-col justify-start md:justify-center min-h-[100dvh] md:min-h-0 md:h-[calc(100vh-140px)] w-full relative" style={{overflow: 'hidden'}}>
+      <div className="w-full max-w-[1200px] mx-auto px-5 flex flex-col justify-start md:justify-center relative" style={{overflow: 'hidden'}}>
         {/* Glow effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-start md:items-center relative z-10">
           
           {/* Left: Text & CTAs */}
           <motion.div 
-            className="flex flex-col items-center lg:items-start text-center lg:text-left" 
+            className="flex flex-col items-center lg:items-start text-center lg:text-left mt-8 md:mt-0" 
             initial="initial" 
             animate="animate" 
             variants={fadeUp}
@@ -102,12 +102,12 @@ export default function Hero() {
 
           {/* Right: Code Editor Visual */}
           <motion.div 
-            className="w-full relative mt-8 lg:mt-0"
+            className="w-full min-w-0 relative mt-8 lg:mt-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative rounded-2xl bg-[#0d0d0f] border border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl">
+            <div className="relative rounded-2xl bg-[#0d0d0f] border border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl w-full">
               {/* Header */}
               <div className="flex items-center px-4 py-3 border-b border-white/5 bg-white/5">
                 <div className="flex gap-2">
@@ -123,7 +123,7 @@ export default function Hero() {
               </div>
               
               {/* Body */}
-              <div className="p-4 md:p-6 font-mono text-[13px] md:text-sm leading-loose overflow-x-auto text-white/80">
+              <div className="p-4 md:p-6 font-mono text-[11px] md:text-sm leading-loose overflow-x-auto text-white/80 max-w-full">
                 <motion.div
                   initial="hidden"
                   animate="visible"
@@ -138,7 +138,7 @@ export default function Hero() {
                   {codeLines.map((item, i) => (
                     <motion.div 
                       key={i} 
-                      className="flex whitespace-nowrap"
+                      className="flex whitespace-pre"
                       variants={{
                         hidden: { opacity: 0, x: -10 },
                         visible: { opacity: 1, x: 0 }
@@ -150,7 +150,7 @@ export default function Hero() {
                   ))}
                   
                   <motion.div 
-                    className="flex whitespace-nowrap mt-2"
+                    className="flex whitespace-pre mt-2"
                     variants={{
                       hidden: { opacity: 0 },
                       visible: { opacity: 1 }

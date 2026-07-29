@@ -137,7 +137,7 @@ const DesktopWorkspace = () => {
   };
 
   return (
-    <div id="desktop-area" className={`relative w-full bg-[#0A0A0B] text-white ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden' : 'min-h-screen'}`}>
+    <div id="desktop-area" className={`relative w-full bg-[#0A0A0B] text-white overflow-x-hidden ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden' : 'min-h-screen'}`}>
       <div className={`z-0 overflow-x-hidden pb-32 ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden md:pb-0' : ''}`}>
         <Hero />
 
