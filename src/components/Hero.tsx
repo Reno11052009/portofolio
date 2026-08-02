@@ -21,7 +21,7 @@ const codeLines = [
   { line: 7, content: <><span className="text-yellow-200/80">{'}'}</span></> }
 ]
 
-export default function Hero() {
+export default function Hero({ isBot = false }: { isBot?: boolean }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -55,9 +55,10 @@ export default function Hero() {
           {/* Left: Text & CTAs */}
           <motion.div 
             className="flex flex-col items-center lg:items-start text-center lg:text-left mt-8 md:mt-0" 
-            initial="initial" 
-            animate="animate" 
+            initial={isBot ? false : "initial"} 
+            animate={isBot ? false : "animate"} 
             variants={fadeUp}
+            style={isBot ? { opacity: 1, y: 0 } : undefined}
           >
             {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm mb-6 text-white/80">
               <span className="relative flex h-2 w-2">

@@ -8,12 +8,13 @@ import LoadingScreen from '@/components/LoadingScreen';
 
 // Sections
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Skills from '@/components/Skills';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import ScrambledText from '@/components/ScrambledText';
+import dynamic from 'next/dynamic';
+
+const About = dynamic(() => import('@/components/About'));
+const Experience = dynamic(() => import('@/components/Experience'));
+const Projects = dynamic(() => import('@/components/Projects'));
+const Contact = dynamic(() => import('@/components/Contact'));
+const ScrambledText = dynamic(() => import('@/components/ScrambledText'));
 
 
 import { motion } from 'framer-motion';
@@ -55,7 +56,7 @@ const SettingsContent = () => {
   );
 };
 
-const DesktopWorkspace = () => {
+const DesktopWorkspace = ({ isBot = false }: { isBot?: boolean }) => {
   const { openWindow, viewMode } = useDesktop();
 
   const dockItems = [
@@ -139,7 +140,7 @@ const DesktopWorkspace = () => {
   return (
     <div id="desktop-area" className={`relative w-full bg-[#0A0A0B] text-white overflow-x-hidden ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden' : 'min-h-screen'}`}>
       <div className={`z-0 overflow-x-hidden pb-32 ${viewMode === 'window' ? 'md:h-screen md:overflow-hidden md:pb-0' : ''}`}>
-        <Hero />
+        <Hero isBot={isBot} />
 
 
         {/* Scrollable content */}
@@ -254,11 +255,11 @@ const DesktopWorkspace = () => {
   );
 };
 
-export default function DesktopApp() {
+export default function DesktopApp({ isBot = false }: { isBot?: boolean }) {
   return (
     <DesktopProvider>
-      <LoadingScreen />
-      <DesktopWorkspace />
+      {!isBot && <LoadingScreen />}
+      <DesktopWorkspace isBot={isBot} />
     </DesktopProvider>
   );
 }

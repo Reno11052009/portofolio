@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import './ScrambledText.css';
 
 interface ScrambledTextProps {
   radius?: number;

@@ -6,7 +6,8 @@ import BorderGlow from './BorderGlow'
 import { useDesktop } from '@/contexts/DesktopContext'
 
 
-import Skills from './Skills'
+import dynamic from 'next/dynamic'
+const Skills = dynamic(() => import('./Skills'))
 
 export default function About() {
   const { viewMode } = useDesktop();
