@@ -145,10 +145,10 @@ export default function Contact() {
                       <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-semibold mb-0.5">Email</span>
                       <div className="flex flex-col gap-1 text-sm font-medium text-white">
                         <a 
-                          href="mailto:reno@renoreno.my.id" 
+                          href="mailto:reno@renoreno.online" 
                           className="hover:text-[#7c5cff] transition-colors truncate max-w-[200px] sm:max-w-none no-underline"
                         >
-                          reno@renoreno.my.id
+                          reno@renoreno.online
                         </a>
                       </div>
                     </div>
