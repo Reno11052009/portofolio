@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arsya Mayreno Arnaldo - Portfolio",
-  description: "Personal portfolio showcasing web development projects and skills.",
+  title: "Arsya Mayreno Arnaldo - Portofolio",
+  description: "Personal portofolio showcasing web development projects and skills.",
 };
 
 import dynamic from "next/dynamic";
