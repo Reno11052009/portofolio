@@ -15,6 +15,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Arsya Mayreno Arnaldo - Portofolio",
   description: "Personal portofolio showcasing web development projects and skills.",
+  openGraph: {
+    title: "Arsya Mayreno Arnaldo - Portofolio",
+    description: "Personal portofolio showcasing web development projects and skills.",
+    url: "https://renoreno.online",
+    siteName: "Arsya Mayreno Arnaldo Portfolio",
+    images: [
+      {
+        url: "https://renoreno.online/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Arsya Mayreno Arnaldo Portfolio Preview",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arsya Mayreno Arnaldo - Portofolio",
+    description: "Personal portofolio showcasing web development projects and skills.",
+    images: ["https://renoreno.online/og-image.jpg"],
+  },
 };
 
 import dynamic from "next/dynamic";
